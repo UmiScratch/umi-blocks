@@ -5348,6 +5348,8 @@ Blockly.ScratchMsgs.locales["en"] =
     "OPERATORS_MATHOP_EEXP": "e ^",
     "OPERATORS_MATHOP_10EXP": "10 ^",
     "PROCEDURES_DEFINITION": "define %1",
+    "PROCEDURES_RETURN": "return %1",
+    "PROCEDURE_USED": "To delete a function definition, first remove all uses of the block",
     "SENSING_TOUCHINGOBJECT": "touching %1?",
     "SENSING_TOUCHINGOBJECT_POINTER": "mouse-pointer",
     "SENSING_TOUCHINGOBJECT_EDGE": "edge",

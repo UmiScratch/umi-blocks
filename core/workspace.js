@@ -26,6 +26,7 @@
 
 goog.provide('Blockly.Workspace');
 
+goog.require('Blockly.ProcedureList');
 goog.require('Blockly.VariableMap');
 goog.require('Blockly.WorkspaceComment');
 goog.require('goog.array');
@@ -101,6 +102,8 @@ Blockly.Workspace = function(opt_options) {
    * @private
    */
   this.variableMap_ = new Blockly.VariableMap(this);
+  
+  this.procedureList_ = new Blockly.ProcedureList(this);
 
   /**
    * Blocks in the flyout can refer to variables that don't exist in the main
@@ -307,6 +310,7 @@ Blockly.Workspace.prototype.clear = function() {
     Blockly.Events.setGroup(false);
   }
   this.variableMap_.clear();
+  this.procedureList_.clear();
   // Any block with a drop-down or WidgetDiv was disposed.
   if (Blockly.DropDownDiv) {
     Blockly.DropDownDiv.hideWithoutAnimation();
@@ -445,6 +449,18 @@ Blockly.Workspace.prototype.getAllVariables = function() {
 };
 
 /* End functions that are just pass-throughs to the variable map. */
+
+Blockly.Workspace.prototype.createProcedureFromMutation = function(mutation) {
+  this.procedureList_.createProcedureFromMutation(mutation);
+};
+
+Blockly.Workspace.prototype.getAllProcedureMutations = function() {
+  return this.procedureList_.getProcedureList();
+};
+
+Blockly.Workspace.prototype.deleteProcedureByProccode = function(proccode) {
+  this.procedureList_.deleteProcedureByProccode(proccode);
+};
 
 /**
  * Returns the horizontal offset of the workspace.
