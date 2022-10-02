@@ -450,6 +450,10 @@ Blockly.Workspace.prototype.getAllVariables = function() {
 
 /* End functions that are just pass-throughs to the variable map. */
 
+Blockly.Workspace.prototype.getProcedureList = function() {
+  return this.procedureList_;
+};
+
 Blockly.Workspace.prototype.createProcedureFromMutation = function(mutation) {
   this.procedureList_.createProcedureFromMutation(mutation);
 };
@@ -460,6 +464,10 @@ Blockly.Workspace.prototype.getAllProcedureMutations = function() {
 
 Blockly.Workspace.prototype.deleteProcedureByProccode = function(proccode) {
   this.procedureList_.deleteProcedureByProccode(proccode);
+};
+
+Blockly.Workspace.prototype.getProcedureByProccode = function(proccode) {
+  return this.procedureList_.getProcedureByProccode(proccode);
 };
 
 /**

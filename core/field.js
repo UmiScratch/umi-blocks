@@ -781,7 +781,9 @@ Blockly.Field.prototype.getClickTarget_ = function() {
   for (var i = 0, input; input = this.sourceBlock_.inputList[i]; i++) {
     nFields += input.fieldRow.length;
   }
-  if (nFields <= 1 && this.sourceBlock_.outputConnection) {
+  if (nFields <= 1 && this.sourceBlock_.outputConnection &&
+    this.sourceBlock_.type != Blockly.PROCEDURES_DECLARATION_BLOCK_TYPE
+  ) {
     return this.sourceBlock_.getSvgRoot();
   } else {
     return this.getSvgRoot();
